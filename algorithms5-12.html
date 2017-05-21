@@ -1,0 +1,137 @@
+<script type="text/javascript">
+
+// A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+// Find the largest palindrome made from the product of two 3-digit numbers.
+	
+
+// function Palindromic(x) {
+//     var pal = parseInt(x.toString().split('').reverse().join(''));
+
+//    if (pal === x)
+//         return true;
+//     else
+//         return false;
+// }
+
+// // SOLUTION 1
+
+// var i = 0;
+// var j = 0;
+// var product = 0;
+// var max = 0;
+
+// for (i = 100; i <= 999; i++) {
+//     for (j = i; j <= 999; j++) {
+//         product = i * j;
+//         if (Palindromic(product)) {
+//           if( max < product ) { // this is new
+//             max = product;
+//             console.log(i + '*' + j + '=' + product);
+//           }
+//         }
+//     }
+// }
+
+
+// // SOLUTION 2
+
+// var max = 0;
+// var num1 = 0;
+// var num2 = 0;
+// for (let n = 999; n > 100; n--){
+// 	for (let i = 998; i > 99; i--){
+// 		temp = n * i;
+// 		var tempString = temp.toString();
+// 		var tempList = tempString.split('');
+// 		// Now we have a list; check to see if it's a pali...
+// 		var copyList = tempList.slice();
+// 		var reverseList = copyList.reverse();
+// 		var palindromic = true;
+// 		for (let j = 0; j < tempList.length; j++){
+// 			if (tempList[j] != reverseList[j]){
+// 				palindromic = false;
+// 				break;
+// 			}
+// 		}
+// 		if (palindromic){
+// 			if (parseInt(tempList.join('')) >= max){
+// 				max = parseInt(tempList.join(''));
+// 				num1 = n;
+// 				num2 = i;
+// 			}
+// 		}
+// 	}
+// }
+// console.log(max);
+// console.log(num1);
+// console.log(num2);
+
+
+// SOLUTION 3
+
+function isPalindrome(num){
+	var arrayReverse = num.toString().split('').reverse().join('');
+	return(num === arrayReverse);
+}
+
+var pal = [1];
+for (let i = 100; i < 1000; i++){
+	for (let j = 100; j < 1000; j++){
+		var f = i * j;
+		if(isPalindrome(f)) && (f > pal[0]){
+			pal.pop();
+			pal.push(f);
+		}
+	}
+}
+
+
+// 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+
+// // SOLUTION 1
+
+// // determine start number = n ie. 20
+// function getSmallestDivisor(n){
+//   var i = n;
+
+//  // if not 0 then i++
+//   function checkI(i){
+//     for (var j = 1; j <= n; j++) {
+//       // loop 20 % i   where i goes from 1 to 20  must % = 0
+//       if( i % j !== 0 ){ return false; }
+//     };
+//     return true;
+//   }
+//   // break loop when n all are 0
+//   while( !(checkI(i)) ){ i+=n; }
+//   return i;
+// }
+
+// console.log(getSmallestDivisor(20));
+
+
+// SOLUTION 2
+
+var found = false;
+for (let i = 2520; found = false; i += 2520){
+	var x = 0;
+	for (let j = 20;j >=11; j--){
+		if (i % j != 0){
+			break;
+		}else{
+			x++;
+		}
+	}
+	if (x == 10){
+		console.log(i);
+		found = true;
+		break;
+	}
+}	
+
+
+</script>
