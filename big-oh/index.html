@@ -1,0 +1,47 @@
+<script type="text/javascript">
+	
+var numbers_to_guess = [1,2,3,4,5,6,7,8,9,10];
+
+prompt("Please pick a number.")
+
+// Is number in array?
+
+// Efficient way:
+var inArray = numbers_to_guess.indexOf(userNumber);
+if (inArray > -1){
+	alert("Found!");
+}else{
+	alert("Not Found");
+}
+
+// Less efficient
+for (let i = 0; i < numbers_to_guess.length; i++){
+	if (userNumber == numbers_to_guess[i]){
+		alert("Found!");
+	}else{
+		alert("Not Found");
+	}
+}
+
+// Terribly inefficient
+// randomly grab elements and see if it's right
+not_found = true;
+while(not_found){
+	rand = Math.rand() * numbers_to_guess.length;
+	if (userNumber == numbers_to_guess[rand]){
+		// we got lucky this time
+		alert("Found");
+		not_found = false;
+	}
+}
+
+// Binary work
+not_found = true;
+while(not_found){
+	// Check the middle number is higher or lower?
+	// If lower, guess the middle number of the lower half
+	// If higher, guess the middle number of the upper half
+}
+
+
+</script>

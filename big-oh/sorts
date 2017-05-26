@@ -1,0 +1,5 @@
+Bubble Sort
+0Start at the first element, and compare it to the next one to it
+-If the left if bigger, they are out of order. Switch!
+-Go to the next one, repeat
+-Do the entire list, ,n times
