@@ -1,0 +1,97 @@
+<script type="text/javascript">
+
+function find_routes(rows,columns){
+    waysToPoint = {}
+    for (let i=0; i<rows+1; i++){
+        for (let j=0; j<columns+1; j++){
+            current_point = (i,j)
+            if ((j == 0) || (i == 0)){
+                waysToPoint[current_point] = 1
+            }else{
+                val1 = i-1
+                val2 = j-1
+                current_val = waysToPoint[(val1,j)] + waysToPoint[(i,val2)]
+                waysToPoint[current_point] = current_val
+            }
+        }
+    }
+    console.log(waysToPoint)
+    return (waysToPoint[rows,columns])
+}
+
+console.time('someFunction');
+n = find_routes(20,20)
+console.log("Answer is " + n)
+console.timeEnd('someFunction');
+
+
+
+//finds the factorial of a number
+// function factorial(number){
+//     var product = 1;
+//     for(i = number; i > 0; i--){
+//         product = product*i;
+//     }
+//     return product;
+// }
+
+// //moves to navigate grid = gridSize *2
+// var gridSize = 20;
+// var moves = gridSize * 2;
+// //Uses permutation function - how many possible orders of forty moves where there are twenty rights and twenty downs?
+// var output = (factorial(moves) / factorial(gridSize)) / factorial(gridSize);
+//Output has decimal because of precision errors.
+
+/*function checkNoMatch(paths, currentPath){    
+    var noMatch = true;
+    var count = 0;
+    var pathLength = currentPath.length;
+    while(noMatch && count < paths.length){        
+        if(paths[count].substr(0,pathLength) == currentPath){
+            noMatch = false;
+        }
+        count ++;        
+    }
+    return noMatch;
+}
+
+var gridSize = 3;
+var paths = [];
+var currentPath = "";
+var rights = 0;
+var downs = 0;
+var totalPaths = 0;
+var withRight = "";
+var endPath = "";
+for(i = 0; i < gridSize; i++){
+    endPath += "d";    
+}
+for(i = 0; i < gridSize; i++){
+    endPath += "r";    
+}
+
+while(paths.length < 4){
+    currentPath = "";
+    while(currentPath.length < gridSize * 2){
+        withRight = currentPath + "r";
+        if(checkNoMatch(paths, withRight) && rights < 3){
+            currentPath = withRight;
+            rights ++;
+        }
+        else{
+            currentPath = currentPath + "d";
+            downs ++;
+        }
+        if(currentPath.length == gridSize*2){
+            paths.push(currentPath);
+        }
+    }
+    rights = 0;
+}
+var output = "";
+for (i = 0; i < paths.length; i++){
+    output += paths[i] + " ";
+}*/
+// document.getElementById("output").innerHTML = output;
+
+</script>
