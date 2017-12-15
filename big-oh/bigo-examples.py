@@ -57,11 +57,3 @@ def fib(num):
 	return fib(num - 2) + fib(num - 1)
 	# This is like adding a higher set of grandparents on a family tree and adding their whole new family tree
 print fib(5)
-
-
-
-
-
-
-
-
