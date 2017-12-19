@@ -7,10 +7,11 @@ function noRepeats(str){
 			continue;
 		}else{
 			alphabet[(str.charAt(i))] = 1;
-			newStr = newStr + str.charAt(i)
+			newStr = newStr + str.charAt(i);
 		}
 	}
 	return newStr;
 	console.log(alphabet);
 }
+
 console.log(noRepeats("hello"));
