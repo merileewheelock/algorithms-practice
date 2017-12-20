@@ -1,5 +1,3 @@
-
-
 function getChange(price){
 
 var quarter = 25;
@@ -29,8 +27,6 @@ numberOfPennies = remaining_cost / penny;
 
 return {quarters: numberOfQuarters, dimes: numberOfDimes,
 		nickels: numberOfNickels, pennies: numberOfPennies}
-
 }
-
 
 console.log(getChange(999));
